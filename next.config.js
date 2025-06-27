@@ -1,12 +1,6 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-// Required to use `__dirname` in ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const path = require('path')
+ 
+module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
@@ -29,6 +23,4 @@ const nextConfig = {
       },
     ],
   },
-};
-
-export default nextConfig;
+}

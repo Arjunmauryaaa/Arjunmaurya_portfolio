@@ -1,5 +1,8 @@
+"use client";
+
 import { projectsData } from '@/utils/data/projects-data';
-import ProjectCard from './project-card';
+import dynamic from "next/dynamic";
+const ProjectCard = dynamic(() => import("./project-card"), { ssr: false });
 
 const Projects = () => {
 

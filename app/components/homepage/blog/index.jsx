@@ -1,7 +1,9 @@
+"use client";
 // @flow strict
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
-import BlogCard from './blog-card';
+import dynamic from "next/dynamic";
+const BlogCard = dynamic(() => import("./blog-card"), { ssr: false });
 
 function Blog({ blogs }) {
 

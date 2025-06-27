@@ -1,17 +1,17 @@
-
 'use client';
+export const dynamic = "force-dynamic";
 
 import { useEffect, useState } from "react";
 import { personalData } from "@/utils/data/personal-data";
-
-import HeroSection from "@/components/homepage/hero-section/index.jsx";
-import AboutSection from "@/components/homepage/about/index.jsx";
-import Experience from "@/components/homepage/experience/index.jsx";
-import Skills from "@/components/homepage/skills/index.jsx";
-import Projects from "@/components/homepage/projects/index.jsx";
-import Education from "@/components/homepage/education/index.jsx";
-import Blog from "@/components/homepage/blog/index.jsx";
-import ContactSection from "@/components/homepage/contact/index.jsx";
+import AboutSection from "./components/homepage/about";
+import Blog from "./components/homepage/blog";
+import ContactSection from "./components/homepage/contact";
+import Education from "./components/homepage/education";
+import Experience from "./components/homepage/experience";
+import HeroSection from "./components/homepage/hero-section";
+import Projects from "./components/homepage/projects";
+import Skills from "./components/homepage/skills";
+import ClientOnly from "./components/ClientOnly";
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
@@ -34,15 +34,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div suppressHydrationWarning>
-      <HeroSection />
-      <AboutSection />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Education />
-      <Blog blogs={blogs} />
-      <ContactSection />
-    </div>
+    <ClientOnly>
+      <div suppressHydrationWarning>
+        <HeroSection />
+        <AboutSection />
+        <Experience />
+        <Skills />
+        <Projects />
+        <Education />
+        <Blog blogs={blogs} />
+        <ContactSection />
+      </div>
+    </ClientOnly>
   );
 }
